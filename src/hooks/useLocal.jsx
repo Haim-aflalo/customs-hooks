@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-
 function useLocal(key, defaultValue) {
-  const [value, setValue] = useState(defaultValue);
-
   function setVal() {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, defaultValue);
+  }
+  function remove() {
+    localStorage.removeItem(key);
   }
 
-  return { value, setVal };
+  return { setVal, remove };
 }
 
 export default useLocal;
